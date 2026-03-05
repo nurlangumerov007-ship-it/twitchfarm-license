@@ -213,13 +213,11 @@ def check_license():
         return jsonify({'valid': False, 'message': 'Лицензия не настроена'})
 
 
-@app.route('/api/check_version', methods=['GET'])
+@app.route('/api/version', methods=['GET'])
 def check_version():
-    """Проверка актуальной версии для автообновления"""
     return jsonify({
-        'version': os.getenv('APP_VERSION', '1.0.0'),
-        'download_url': os.getenv('DOWNLOAD_URL', ''),
-        'changelog': os.getenv('CHANGELOG', 'Обновление доступно')
+        'min_version': os.getenv('MIN_VERSION', '1.0.0'),
+        'telegram': os.getenv('TELEGRAM_CHANNEL', 't.me/ttwfarm')
     })
 
 
