@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: tiktok-agent-license-server
+    env: python
+    region: frankfurt  # Или oregon для США
+    plan: free  # Бесплатный план
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: ADMIN_PASSWORD
+        generateValue: true  # Автогенерация пароля
+    healthCheckPath: /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
